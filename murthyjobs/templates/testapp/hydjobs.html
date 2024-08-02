@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hyderabad Jobs Information </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/hydjobs.css' %}">
+  </head>
+  <body>
+    <h1>Welcome To Hyderabad Jobs Information </h1>
+    {% if hyd %}
+    <table border="3">
+      <thead>
+        <th>Date</th>
+        <th>Company</th>
+        <th>Title</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>PhoneNumber</th>
+      </thead>
+      {% for job in hyd %}
+      <tr>
+        <td>{{job.date}}</td>
+        <td>{{job.company}}</td>
+        <td>{{job.title}}</td>
+        <td>{{job.address}}</td>
+        <td>{{job.email}}</td>
+        <td>{{job.phonenumber}}</td>
+      </tr>
+      {% endfor %}
+
+    </table>
+    {% else %}
+    <p> No records found please enter here </p>
+    {% endif %}
+
+    <a href="/" class="btn btn-primary btn-lg" >Back to Home </a>
+
+  </body>
+</html>
